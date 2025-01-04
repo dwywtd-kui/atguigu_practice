@@ -32,6 +32,11 @@ public class DataDict extends BaseEntity {
     private String dataValue;
 
     /**
+     * 显示icon
+     */
+    private String icon;
+
+    /**
      * 描述
      */
     private String description;
@@ -41,8 +46,10 @@ public class DataDict extends BaseEntity {
     public enum DataGroupEnum implements BaseEnum {
         PAYMENT_TYPE("payment_type", "支付方式"),
         LEASE_TERM("lease_term", "租期"),
-        LABEL_APARTMENT("label_department", "公寓标签"),
-        LABEL_ROOM("label_room", "房间标签");
+        LABEL_APARTMENT("label_apartment", "公寓标签"),
+        LABEL_ROOM("label_room", "房间标签"),
+        FACILITY_APARTMENT("facility_apartment", "公寓配套"),
+        FACILITY_ROOM("facility_room", "房间配套");
 
         @JsonValue
         private final String code;

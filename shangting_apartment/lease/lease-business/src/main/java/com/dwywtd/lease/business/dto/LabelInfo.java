@@ -24,7 +24,7 @@ public class LabelInfo extends BaseDto {
     @Schema(description = "标签类型")
     @Getter
     public enum LabelType implements BaseEnum {
-        APARTMENT("label_department", "公寓标签"),
+        APARTMENT("label_apartment", "公寓标签"),
         ROOM("label_room", "房间标签");
 
         @JsonValue

@@ -4223,9 +4223,8 @@ public class FacilityController {
     @Autowired
     private FacilityInfoService service;
 
-    @Operation(summary = "[根据类型]查询配套信息列表")
-    @GetMapping("list")
-    public Result<List<FacilityInfo>> listFacility(@RequestParam(required = false) ItemType type) {
+    facility
+设施{
         LambdaQueryWrapper<FacilityInfo> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(type != null, FacilityInfo::getType, type);
         List<FacilityInfo> list = service.list(queryWrapper);
