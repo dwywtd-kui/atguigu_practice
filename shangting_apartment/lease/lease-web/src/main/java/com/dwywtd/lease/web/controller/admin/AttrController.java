@@ -1,7 +1,6 @@
 package com.dwywtd.lease.web.controller.admin;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.dwywtd.lease.business.domain.DataDict;
 import com.dwywtd.lease.business.domain.DataDictGroup;
 import com.dwywtd.lease.business.dto.AttrKey;
@@ -9,7 +8,7 @@ import com.dwywtd.lease.business.dto.AttrValue;
 import com.dwywtd.lease.business.service.DataDictGroupService;
 import com.dwywtd.lease.business.service.DataDictService;
 import com.dwywtd.lease.business.vo.AttrKeyVo;
-import com.dwywtd.lease.web.result.ResultBuild;
+import com.atguigu.lease.infrastructure.result.ResultBuild;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.BeanUtils;

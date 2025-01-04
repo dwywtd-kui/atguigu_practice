@@ -2,7 +2,7 @@ package com.dwywtd.lease.web.controller.admin;
 
 import com.dwywtd.lease.business.dto.LeaseTerm;
 import com.dwywtd.lease.business.service.LeaseTermService;
-import com.dwywtd.lease.web.result.ResultBuild;
+import com.atguigu.lease.infrastructure.result.ResultBuild;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

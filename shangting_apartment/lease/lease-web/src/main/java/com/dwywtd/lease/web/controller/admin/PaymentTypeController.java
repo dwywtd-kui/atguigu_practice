@@ -2,8 +2,8 @@ package com.dwywtd.lease.web.controller.admin;
 
 import com.dwywtd.lease.business.dto.PaymentType;
 import com.dwywtd.lease.business.service.PaymentTypeService;
-import com.dwywtd.lease.web.result.Result;
-import com.dwywtd.lease.web.result.ResultBuild;
+import com.atguigu.lease.infrastructure.result.Result;
+import com.atguigu.lease.infrastructure.result.ResultBuild;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -20,10 +20,9 @@ public class LabelInfo extends BaseDto {
     private String name;
 
 
-
     @Schema(description = "标签类型")
     @Getter
-    public enum LabelType implements BaseEnum {
+    public enum LabelType implements BaseEnum<String> {
         APARTMENT("label_apartment", "公寓标签"),
         ROOM("label_room", "房间标签");
 
@@ -34,11 +33,6 @@ public class LabelInfo extends BaseDto {
         LabelType(String code, String name) {
             this.code = code;
             this.name = name;
-        }
-
-        @Override
-        public String getValue() {
-            return getCode();
         }
 
         public static LabelType codeValueOf(String code) {

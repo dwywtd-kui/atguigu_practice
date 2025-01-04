@@ -24,7 +24,7 @@ public class FacilityInfo extends BaseDto {
 
 
     @Getter
-    public enum FacilityType implements BaseEnum {
+    public enum FacilityType implements BaseEnum<String> {
         APARTMENT("facility_apartment", "公寓配套"),
         ROOM("facility_room", "房间配套");
 
@@ -35,10 +35,6 @@ public class FacilityInfo extends BaseDto {
         FacilityType(String code, String name) {
             this.code = code;
             this.name = name;
-        }
-
-        public String getValue() {
-            return code;
         }
 
         public static FacilityType codeValueOf(String code) {

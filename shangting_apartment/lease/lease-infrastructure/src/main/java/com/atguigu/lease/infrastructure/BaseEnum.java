@@ -1,9 +1,9 @@
 package com.atguigu.lease.infrastructure;
 
-import com.baomidou.mybatisplus.annotation.IEnum;
+import java.io.Serializable;
 
-public interface BaseEnum extends IEnum<String> {
-    String getCode();
+public interface BaseEnum<T extends Serializable> {
+    T getCode();
 
     String getName();
 }

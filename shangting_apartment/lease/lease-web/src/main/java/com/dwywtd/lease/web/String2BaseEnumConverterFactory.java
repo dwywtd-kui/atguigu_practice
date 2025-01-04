@@ -13,7 +13,7 @@ public class String2BaseEnumConverterFactory implements ConverterFactory<String,
             @Override
             public T convert(String source) {
                 for (T enumConstant : targetType.getEnumConstants()) {
-                    if (enumConstant.getCode().equals(source)) {
+                    if (String.valueOf(enumConstant.getCode()).equals(source)) {
                         return enumConstant;
                     }
                 }

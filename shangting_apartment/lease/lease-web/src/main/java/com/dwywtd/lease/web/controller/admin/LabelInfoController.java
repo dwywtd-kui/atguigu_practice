@@ -3,7 +3,7 @@ package com.dwywtd.lease.web.controller.admin;
 import com.dwywtd.lease.business.domain.DataDict;
 import com.dwywtd.lease.business.dto.LabelInfo;
 import com.dwywtd.lease.business.service.DataDictService;
-import com.dwywtd.lease.web.result.ResultBuild;
+import com.atguigu.lease.infrastructure.result.ResultBuild;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.BeanUtils;

@@ -2,6 +2,7 @@ package com.dwywtd.lease.business.domain;
 
 import com.atguigu.lease.infrastructure.BaseEntity;
 import com.atguigu.lease.infrastructure.BaseEnum;
+import com.baomidou.mybatisplus.annotation.IEnum;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
@@ -42,7 +43,7 @@ public class DataDict extends BaseEntity {
 
 
     @Getter
-    public enum DataGroupEnum implements BaseEnum {
+    public enum DataGroupEnum implements BaseEnum<String>, IEnum<String> {
         PAYMENT_TYPE("payment_type", "支付方式"),
         LEASE_TERM("lease_term", "租期"),
         LABEL_APARTMENT("label_apartment", "公寓标签"),
