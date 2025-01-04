@@ -29,12 +29,10 @@ public class LabelInfoController {
     @GetMapping("list")
     public List<LabelInfo> labelList(@RequestParam(required = false) LabelInfo.LabelType labelType) {
         if (labelType == null) {
-            List<DataDict.DataGroupEnum> dataGroupEnumList = Arrays.stream(LabelInfo.LabelType.values()).map(i -> {
-                return DataDict.DataGroupEnum.codeValueOf(i.getCode());
-            }).collect(Collectors.toList());
-            return dataDictService.listByGroups(dataGroupEnumList).stream().map(this::map).collect(Collectors.toList());
+            List<String> dataGroups = Arrays.stream(LabelInfo.LabelType.values()).map(LabelInfo.LabelType::getCode).collect(Collectors.toList());
+            return dataDictService.listByGroups(dataGroups).stream().map(this::map).collect(Collectors.toList());
         } else {
-            List<DataDict> listByGroup = dataDictService.listByGroup(DataDict.DataGroupEnum.codeValueOf(labelType.getCode()));
+            List<DataDict> listByGroup = dataDictService.listByGroup(labelType.getCode());
             return listByGroup.stream().map(this::map).collect(Collectors.toList());
         }
     }
@@ -64,7 +62,7 @@ public class LabelInfoController {
         dataDict.setId(labelInfo.getId());
         dataDict.setName(labelInfo.getName());
         dataDict.setDataValue(labelInfo.getName());
-        dataDict.setDataGroup(DataDict.DataGroupEnum.codeValueOf(labelInfo.getType().getCode()));
+        dataDict.setDataGroup(labelInfo.getType().getCode());
         return dataDict;
     }
 
@@ -73,7 +71,7 @@ public class LabelInfoController {
         BeanUtils.copyProperties(dataDict, labelInfo);
         labelInfo.setId(dataDict.getId());
         labelInfo.setName(dataDict.getName());
-        labelInfo.setType(LabelInfo.LabelType.codeValueOf(dataDict.getDataGroup().getCode()));
+        labelInfo.setType(LabelInfo.LabelType.codeValueOf(dataDict.getDataGroup()));
         return labelInfo;
     }
 

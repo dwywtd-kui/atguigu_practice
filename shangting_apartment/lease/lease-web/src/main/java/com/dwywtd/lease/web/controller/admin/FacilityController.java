@@ -31,12 +31,10 @@ public class FacilityController {
         List<DataDict> dataDictList;
         if (type == null) {
             List<FacilityInfo.FacilityType> facilityTypes = List.of(FacilityInfo.FacilityType.values());
-            List<DataDict.DataGroupEnum> dataGroupEnumList = facilityTypes.stream().map(i -> {
-                return DataDict.DataGroupEnum.codeValueOf(i.getCode());
-            }).collect(Collectors.toList());
-            dataDictList = dataDictService.listByGroups(dataGroupEnumList);
+            List<String> dataGroups = facilityTypes.stream().map(FacilityInfo.FacilityType::getCode).collect(Collectors.toList());
+            dataDictList = dataDictService.listByGroups(dataGroups);
         } else {
-            dataDictList = dataDictService.listByGroup(DataDict.DataGroupEnum.codeValueOf(type.getCode()));
+            dataDictList = dataDictService.listByGroup(type.getCode());
         }
         return dataDictList.stream().map(this::map).collect(Collectors.toList());
     }
@@ -65,7 +63,7 @@ public class FacilityController {
         BeanUtils.copyProperties(dataDict, facilityInfo);
         facilityInfo.setName(dataDict.getName());
         if (dataDict.getDataGroup() != null) {
-            facilityInfo.setFacilityType(FacilityInfo.FacilityType.codeValueOf(dataDict.getDataGroup().getCode()));
+            facilityInfo.setFacilityType(FacilityInfo.FacilityType.codeValueOf(dataDict.getDataGroup()));
         }
         return facilityInfo;
     }
@@ -75,7 +73,7 @@ public class FacilityController {
         BeanUtils.copyProperties(facilityInfo, dataDict);
         dataDict.setName(facilityInfo.getName());
         if (facilityInfo.getFacilityType() != null) {
-            dataDict.setDataGroup(DataDict.DataGroupEnum.codeValueOf(facilityInfo.getFacilityType().getCode()));
+            dataDict.setDataGroup(facilityInfo.getFacilityType().getCode());
         }
         return dataDict;
     }

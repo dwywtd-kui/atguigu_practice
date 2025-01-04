@@ -2,7 +2,6 @@ package com.dwywtd.lease.business.domain;
 
 import com.atguigu.lease.infrastructure.BaseEntity;
 import com.atguigu.lease.infrastructure.BaseEnum;
-import com.baomidou.mybatisplus.annotation.IEnum;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
@@ -19,7 +18,7 @@ import lombok.Getter;
 @TableName("data_dict")
 public class DataDict extends BaseEntity {
 
-    private DataGroupEnum dataGroup;
+    private String dataGroup;
 
     /**
      * 名称

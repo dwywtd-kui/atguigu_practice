@@ -12,8 +12,13 @@ import java.util.List;
  */
 public interface DataDictService extends IService<DataDict> {
 
+
+    List<DataDict> listByGroup(String dataGroup);
+
+    List<DataDict> listByGroups(List<String> dataGroups);
+
     List<DataDict> listByGroup(DataDict.DataGroupEnum dataGroup);
 
-    List<DataDict> listByGroups(List<DataDict.DataGroupEnum> dataGroups);
+    List<DataDict> listByDataGroupEnum(List<DataDict.DataGroupEnum> dataGroups);
 
 }
