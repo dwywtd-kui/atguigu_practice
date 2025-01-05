@@ -13,6 +13,8 @@ import java.util.List;
 @Data
 public class DataDictGroup extends BaseEntity {
 
+    private String classify;
+
     private String code;
 
     private String name;

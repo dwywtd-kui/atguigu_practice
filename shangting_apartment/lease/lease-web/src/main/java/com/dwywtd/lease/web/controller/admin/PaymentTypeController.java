@@ -14,7 +14,7 @@ import java.util.List;
 @Tag(name = "支付方式管理")
 @ResultBuild
 @RestController
-@RequestMapping("/admin/paymentType")
+@RequestMapping("/admin/payment")
 public class PaymentTypeController {
 
     @Autowired

@@ -22,6 +22,8 @@ import java.util.List;
 @RequestMapping("/admin/attr")
 public class AttrController {
 
+    private final String CLASSIFY = "attr";
+
     private final DataDictGroupService dataDictGroupService;
 
     private final DataDictService dataDictService;
@@ -47,6 +49,7 @@ public class AttrController {
         DataDictGroup dataDictGroup = new DataDictGroup();
         BeanUtils.copyProperties(attrKey, dataDictGroup);
         dataDictGroup.setName(attrKey.getName());
+        dataDictGroup.setClassify(CLASSIFY);
         return dataDictGroup;
     }
 
@@ -95,7 +98,7 @@ public class AttrController {
     @Operation(summary = "查询全部属性名称和属性值列表")
     @GetMapping("list")
     public List<AttrKeyVo> listAttrInfo() {
-        List<DataDictGroup> dictGroups = dataDictGroupService.list();
+        List<DataDictGroup> dictGroups = dataDictGroupService.listByClassify(CLASSIFY);
         List<AttrKeyVo> attrKeyVoList = dictGroups.stream().map(this::map2AttrKeyVo).toList();
         for (AttrKeyVo attrKeyVo : attrKeyVoList) {
             List<DataDict> dataDictList = dataDictService.listByGroup(String.valueOf(attrKeyVo.getId()));
